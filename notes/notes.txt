@@ -1,0 +1,4 @@
+Go to http://start.spring.io/
+Download project and extract to relevant directory.
+Create Simple Controller
+Update .gitignore
