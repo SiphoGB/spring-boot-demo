@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix="config")
+@ConfigurationProperties(prefix = "config")
 public class Config {
     private String version;
 
@@ -15,5 +15,5 @@ public class Config {
     public void setVersion(String version) {
         this.version = version;
     }
-    
+
 }

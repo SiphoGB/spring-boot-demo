@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Example {
-	
+
     @Autowired
-	private Config config;
+    private Config config;
 
     @RequestMapping("/")
-	public String hello() {
-		return "java controller";
-	}
-	   
+    public String hello() {
+        return "java controller";
+    }
+
     @RequestMapping("/version")
     public String version() {
         return config.getVersion();
     }
-    
-	@RequestMapping("/args/{val}")
-	public String helloWithArgs(@PathVariable("val") String val) {
-		return "Hello " + val;
-	}
+
+    @RequestMapping("/args/{val}")
+    public String helloWithArgs(@PathVariable("val") String val) {
+        return "Hello " + val;
+    }
 
 }

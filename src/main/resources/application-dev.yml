@@ -1,5 +1,5 @@
 config:
-    version: 0.5.1
+    version: 0.5.4
 spring:
     profiles:
         include: dev_server,dev_database
