@@ -2,3 +2,16 @@ config:
     version: 0.0.1
 server:
     port: 8080
+
+spring:
+    jpa:
+        show-sql: true
+    datasource:
+        data: classpath:data.sql
+        
+shell:
+    auth:
+        simple:
+            user:
+                name: user
+                password: password        
