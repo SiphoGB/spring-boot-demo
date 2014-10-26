@@ -1,0 +1,12 @@
+<section ng-controller="topicCtrl">
+	<div class='card'>
+		<div class='item item-divider'>{{topicId}} :</div>
+		<div class='item item-text-wrap'>
+			<div class='list list-inset'>
+				<div class='item' ng-repeat="question in questionsList track by $index">
+					{{question.question}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

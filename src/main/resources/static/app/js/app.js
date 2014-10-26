@@ -3,7 +3,8 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+var app = angular.module('starter', ['ionic', 'ngRoute', 'directory.services', 'directory.controllers'])
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -16,4 +17,28 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+});
+
+app.config(['$routeProvider', '$sceProvider', function($routeProvider, $sceProvider) {
+	$sceProvider.enabled(false);
+	$routeProvider.
+		when('/topics', {
+			templateUrl: 'partials/topics.html',
+			controller: 'topicsCtrl'
+		}).
+		when('/results', {
+			templateUrl: 'partials/results.html',
+			controller: 'resultsCtrl'
+		}).
+		when('/topic', {
+			templateUrl: 'partials/topic.html',
+			controller: 'topicCtrl'
+		}).
+		when('/user_topic/:topicId', {
+			templateUrl: 'partials/user_topic.html',
+			controller: 'mainCtrl'
+		}).
+        otherwise({
+			redirectTo: '/topics'
+		});
+}]);

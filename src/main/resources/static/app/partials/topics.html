@@ -1,0 +1,12 @@
+<section id='topicList' ng-controller="topicsCtrl">
+	<div class='card'>
+		<div class='item item-divider'>Topics:</div>
+		<div class='item item-text-wrap'>
+			<div class='list list-inset'>
+				<div class='item' ng-repeat="topic in topicList track by $index">
+					<a class="item" ng-href="#/user_topic/{{topic.id}}">{{topic.name}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

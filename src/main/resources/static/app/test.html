@@ -27,15 +27,18 @@
 <script src="js/services/services.js"></script>
 <script src="js/controllers/controllers.js"></script>
 </head>
-<body ng-app="starter">
+<body ng-app="starter" ng-controller="mainCtrl">
 
 	<ion-pane>
 	
 		<ion-header-bar class="bar-stable">
 			<h1 class="title">Spring Boot Demo</h1>
 		</ion-header-bar> 
-	  	<ion-footer-bar>
-	 		<div class="tabs tabs-icon-top tabs-positive">
+		<ion-content>
+  			Some content!
+		</ion-content>
+		<ion-footer-bar>
+	 		<div class="tabs tabs-icon-left tabs-positive">
 	  			<a class="tab-item" href="#/topics" ng-click="showTopics(); closeAlert()">
 	     			<i class="icon ion-thumbsup"></i>
 	     			Topics
@@ -43,14 +46,11 @@
 				<a class="tab-item" href="#/" ng-click="closeAlert()">
 				    <i class="icon ion-home"></i>
 				</a>
-           		<a class="tab-item" href="#/results" ng-click="showResults(); closeAlert()">
+           		<a class="tab-item" href="#/resultsr" ng-click="showResults(); closeAlert()">
      				<i class="icon ion-share"></i>Results
      			</a>
 	 		</div>
 		</ion-footer-bar>
-		<ion-content>
-			<div ng-view>
-		</ion-content>
 		
 	</ion-pane>
 </body>
