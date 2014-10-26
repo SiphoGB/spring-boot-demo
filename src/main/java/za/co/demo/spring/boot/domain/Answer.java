@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Answer implements Serializable {
 
@@ -30,6 +32,7 @@ public class Answer implements Serializable {
     private boolean correct;
 
     @ManyToOne
+    @JsonBackReference
     private Question question;
 
     public Long getId() {

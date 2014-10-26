@@ -29,6 +29,10 @@ app.config(['$routeProvider', '$sceProvider', function($routeProvider, $sceProvi
 		when('/results', {
 			templateUrl: 'partials/results.html',
 			controller: 'resultsCtrl'
+		}).		
+		when('/result/:topicId', {
+			templateUrl: 'partials/result.html',
+			controller: 'resultCtrl'
 		}).
 		when('/topic', {
 			templateUrl: 'partials/topic.html',

@@ -97,4 +97,11 @@ public class UserTopic implements Serializable {
         return start - end;
     }
 
+	@Override
+	public String toString() {
+		return "UserTopic [id=" + id + ", uuid=" + uuid + ", start=" + start
+				+ ", end=" + end + ", result=" + result + ", topic=" + topic
+				+ ", user=" + user + "]";
+	}
+    
 }

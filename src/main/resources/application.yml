@@ -14,4 +14,8 @@ shell:
         simple:
             user:
                 name: user
-                password: password        
+                password: password
+                
+logging:
+    level:
+        za: DEBUG

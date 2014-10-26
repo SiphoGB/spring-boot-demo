@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Topic implements Serializable {
@@ -29,6 +32,7 @@ public class Topic implements Serializable {
     private boolean active;
 
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Set<Question> questions;
     
     public Long getId() {
@@ -55,6 +59,7 @@ public class Topic implements Serializable {
         this.active = active;
     }
 
+    @XmlTransient
     public Set<Question> getQuestions() {
         return questions;
     }

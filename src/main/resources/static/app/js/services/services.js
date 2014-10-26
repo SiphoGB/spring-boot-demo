@@ -15,14 +15,16 @@ angular.module('directory.services', ['hostServices'])
     	var pre = 'rest';
     	$log.debug(HostnameFactory.url);
     	return {
-    		//startUserTopic : HostnameFactory.url + pre + '/project/stats',
-    		getTopics : HostnameFactory.url + pre + '/topics',
-    		getResults : HostnameFactory.url + pre + '/results',
+    		getTopics : HostnameFactory.url + pre + '/topics/',
+    		getResults : HostnameFactory.url + pre + '/topics/',
     		getTopic : function(topicId) {
-    			return HostnameFactory.url + pre + '/topic/' + topicId;
+    			return HostnameFactory.url + pre + '/topics/' + topicId;
     		},
     		startUserTopic : function(topicId) {
     			return HostnameFactory.url + pre + '/user/start/' + topicId;
+    		},
+    		endUserTopic : function(uuid) {
+    			return HostnameFactory.url + pre + '/user/end/' + uuid;
     		},
     		submitUserTopic : function(topicId, uuid) {
     			return HostnameFactory.url + pre + '/user/submit/' + uuid;

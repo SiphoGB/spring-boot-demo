@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Question implements Serializable {
 
@@ -27,10 +30,14 @@ public class Question implements Serializable {
     private String question;
 
     @ManyToOne
+    @JsonBackReference
     private Topic topic;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Set<Answer> answers;
+
+	private String selected;
 
     public Long getId() {
         return id;
@@ -95,5 +102,13 @@ public class Question implements Serializable {
             return false;
         return true;
     }
+
+	public String getSelected() {
+		return selected;
+	}
+
+	public void setSelected(String selected) {
+		this.selected = selected;
+	}
 
 }

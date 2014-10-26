@@ -1,12 +1,48 @@
-<section ng-controller="topicCtrl">
+<div ng-controller="topicCtrl">
+<section>
 	<div class='card'>
-		<div class='item item-divider'>{{topicId}} :</div>
+		<form name="personal_form" novalidate="novalidate">
+			<div class='item item-divider'>Personal Details</div>
+			<div class="list">
+				<label class="item item-input item-floating-label"> 
+					<span class="input-label">Name</span> 
+					<input type="text" placeholder="Name" ng-model='user.name' ng-disabled="isStarted">
+				</label> 
+				<label class="item item-input item-floating-label"> 
+					<span class="input-label">Email</span> 
+					<input type="text" placeholder="Email" ng-model='user.email' ng-disabled="isStarted">
+				</label>
+			</div>
+			<div class="padding">
+		    	<button class="button button-block button-positive activated" type="submit" ng-click="startUserTopic()" ng-disabled="isStarted">Submit</button>
+		    </div>
+	    </form>
+	</div>
+</section>
+<section ng-show="isStarted">
+	<div class='card'>
+		<form name="topic_form" novalidate="novalidate">
+		<div class='item item-divider'>{{topic.name}} :</div>
 		<div class='item item-text-wrap'>
 			<div class='list list-inset'>
-				<div class='item' ng-repeat="question in questionsList track by $index">
-					{{question.question}}
+				<div class='item' ng-repeat="question in topic.questions track by question.id">
+					<div class='item item-divider'>{{question.question}}</div>
+					<div class="list">
+						<div class='item' ng-repeat="answer in question.answers track by answer.id">
+							<label class="item item-radio"> 
+								<input type="radio" value="{{answer.answer}}" ng-model='question.selected' name="{{question.id}}">
+								<div class="item-content">{{answer.display}}</div> 
+								<i class="radio-icon ion-checkmark"></i>
+							</label>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="padding">
+			<button class="button button-block button-positive activated" type="submit" ng-click="endUserTopic()" ng-disabled="isBusy">Submit</button>
+		</div>
+		</form>
 	</div>
 </section>
+</div>
