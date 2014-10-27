@@ -95,6 +95,9 @@ public class UserTopic implements Serializable {
     }
 
     public long getTimeTaken() {
+        if (end == 0) {
+            return 0;
+        }
         return end - start;
     }
 

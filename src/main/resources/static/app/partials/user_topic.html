@@ -13,7 +13,7 @@
 					<input type="text" placeholder="Email" ng-model='user.email' ng-disabled="isStarted">
 				</label>
 			</div>
-			<div class="padding">
+			<div class="padding" ng-hide="isStarted">
 		    	<button class="button button-block button-positive activated" type="submit" ng-click="startUserTopic()" ng-disabled="isStarted">Submit</button>
 		    </div>
 	    </form>

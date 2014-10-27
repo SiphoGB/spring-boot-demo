@@ -3,7 +3,7 @@
 		<div class='item item-divider'>Result:</div>
         <div class='item item-text-wrap'>
             <div class='list list-inset'>
-                <div class='item' ng-repeat="userTopic in userTopics | orderBy: ['-result', timeTaken] ">
+                <div class='item' ng-repeat="userTopic in userTopics | orderBy: ['-result', +'timeTaken'] ">
                     {{userTopic.user.name}} ({{userTopic.timeTaken}} ms) - {{userTopic.result | number:2}}%
                 </div>
             </div>
