@@ -1,4 +1,23 @@
 config:
-    version: 1.0.0
+    version: 1.0.1
 server:
     port: 8000
+spring:
+    jpa:
+        show-sql: false
+        hibernate:
+            ddl-auto: update
+    datasource:
+        url: jdbc:hsqldb:file:~/boot-demo;shutdown=true
+        data: classpath:data-prod.sql
+        
+shell:
+    auth:
+        simple:
+            user:
+                name: user
+                password: password
+                
+logging:
+    level:
+        za: DEBUG

@@ -24,6 +24,7 @@ import za.co.demo.spring.boot.resource.AnswerResource;
 import za.co.demo.spring.boot.resource.TopicResource;
 import za.co.demo.spring.boot.resource.UserTopicAnswerResource;
 import za.co.demo.spring.boot.resource.UserTopicResource;
+import za.co.demo.spring.boot.service.CalculatorService;
 
 @RestController
 @RequestMapping("/rest/user")
@@ -42,6 +43,9 @@ public class UserController {
 
     @Autowired
     private UserTopicAnswerResource userTopicAnswerResource;
+
+    @Autowired
+    private CalculatorService calculatorService;
 
     @RequestMapping(value = "/start/{topicId}", method = RequestMethod.POST)
     public String startUserTopic(@PathVariable("topicId") long topicId,
@@ -79,7 +83,7 @@ public class UserController {
         }
 
         // calculate result
-        double result = ((double) totalCorrectQuestions / totalQuestions) * 100d;
+        double result = calculatorService.calculate(totalQuestions, totalCorrectQuestions);
         LOG.debug("result = " + result);
         
         userTopic.setResult(result);
