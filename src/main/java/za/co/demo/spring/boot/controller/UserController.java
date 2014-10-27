@@ -53,7 +53,11 @@ public class UserController {
         UserTopic userTopic = new UserTopic();
         userTopic.setUser(user);
         userTopic.setStart(System.currentTimeMillis());
-        userTopic.setTopic(topicResource.findOne(topicId));
+        Topic topic = topicResource.findOne(topicId);
+        if (!topic.isActive()) {
+            throw new IllegalArgumentException("Topic has not started"); 
+        }
+        userTopic.setTopic(topic);
         userTopic.setUuid(UUID.randomUUID().toString());
 
         userTopicResource.save(userTopic);
