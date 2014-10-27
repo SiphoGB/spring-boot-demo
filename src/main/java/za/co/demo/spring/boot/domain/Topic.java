@@ -59,7 +59,6 @@ public class Topic implements Serializable {
         this.active = active;
     }
 
-    @XmlTransient
     public Set<Question> getQuestions() {
         return questions;
     }

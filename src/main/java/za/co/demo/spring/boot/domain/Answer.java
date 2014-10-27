@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Answer implements Serializable {
@@ -29,6 +30,7 @@ public class Answer implements Serializable {
     private String display;
 
     @Column(nullable = false)
+    //This should not be visible @JsonIgnore
     private boolean correct;
 
     @ManyToOne

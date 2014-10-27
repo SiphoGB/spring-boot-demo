@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -110,5 +111,15 @@ public class Question implements Serializable {
 	public void setSelected(String selected) {
 		this.selected = selected;
 	}
+
+	@JsonIgnore
+    public String getCorrectAnswer() {
+        for (Answer answer : answers) {
+            if (answer.isCorrect()) {
+                return answer.getAnswer();
+            }
+        }
+        return "";
+    }
 
 }

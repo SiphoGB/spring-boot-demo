@@ -2,4 +2,4 @@ spring:
     jpa:
         show-sql: true
     datasource:
-        data: classpath:data.sql
+        data: classpath:data-dev.sql

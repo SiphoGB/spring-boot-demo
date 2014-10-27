@@ -5,10 +5,10 @@ angular.module('directory.controllers', [])
 	.controller('resultCtrl', function ($scope, $http, $log, $routeParams, URLService) {
         $http({
 			method: 'GET',
-			url: URLService.getTopic($routeParams.topicId),
+			url: URLService.getUserTopics($routeParams.topicId),
 			headers: {'Content-Type': 'application/json'}
 		}).success(function(data){
-			$scope.topic = data;
+			$scope.userTopics = data;
 			$scope.loading = false;
 		}).error(function(data){
 			$scope.loading = false;
@@ -72,7 +72,7 @@ angular.module('directory.controllers', [])
 
         $http({
 			method: 'GET',
-			url: URLService.getTopics,
+			url: URLService.getActiveTopics,
 			headers: {'Content-Type': 'application/json'}
 		}).success(function(data){
 			$scope.topicList = data;

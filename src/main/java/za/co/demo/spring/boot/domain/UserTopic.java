@@ -2,6 +2,7 @@ package za.co.demo.spring.boot.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class UserTopic implements Serializable {
     @ManyToOne
     private Topic topic;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private User user;
 
     public Long getId() {
@@ -92,16 +93,16 @@ public class UserTopic implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
-    public long timeTaken() {
-        return start - end;
+
+    public long getTimeTaken() {
+        return end - start;
     }
 
-	@Override
-	public String toString() {
-		return "UserTopic [id=" + id + ", uuid=" + uuid + ", start=" + start
-				+ ", end=" + end + ", result=" + result + ", topic=" + topic
-				+ ", user=" + user + "]";
-	}
-    
+    @Override
+    public String toString() {
+        return "UserTopic [id=" + id + ", uuid=" + uuid + ", start=" + start
+                + ", end=" + end + ", result=" + result + ", topic=" + topic
+                + ", user=" + user + "]";
+    }
+
 }
