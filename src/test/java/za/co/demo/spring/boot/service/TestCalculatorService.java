@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("test")
-@Primary
+//@Primary
 public class TestCalculatorService implements CalculatorService {
 
     @Override
