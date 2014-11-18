@@ -10,7 +10,12 @@ class date {
   Object main(
      @Usage("the time format")
      @Option(names=["f","format"])
-     String format) {
+     String format,
+     @Option(names=["e","epoch"])
+     Boolean epoch) {
+    if (epoch) {
+        return System.currentTimeMillis();
+    }
     if (format == null)
       format = "EEE MMM d HH:mm:ss z yyyy";
     def date = new Date();
