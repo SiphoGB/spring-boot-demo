@@ -1,0 +1,1 @@
+insert into user(name, email) values ('Steve', 'steve@beepbank.co.za');

@@ -5,17 +5,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import za.co.demo.spring.boot.resource.UserResource;
+
 @RestController
 public class Example {
 	
     @Autowired
 	private Config config;
 
-    @RequestMapping("/")
+    @Autowired
+    private UserResource userResource;
+
+	@RequestMapping("/")
 	public String hello() {
-		return "java controller";
+		return "Hello " + userResource.findOne(1L).getName();
 	}
-	   
+	
     @RequestMapping("/version")
     public String version() {
         return config.getVersion();
